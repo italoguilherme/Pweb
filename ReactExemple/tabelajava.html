@@ -1,0 +1,21 @@
+<hmtl>
+	<body>
+		<div>
+			<p><button onmouseup="gerartable()";>Gerar tabela</button></p>
+			<table id='principal' border = "5px" bgcolor="FFFF00">
+	
+			</table>
+		</div>
+		<script>
+			async function gerartable(){
+			let ola	= await fetch("https://random-data-api.com/api/restaurant/random_restaurant?size=5")
+			let conveter = await ola.json()
+			let tabela = conveter.map(fds => `<tr><td>${fds.id}</td><td>${fds.name}</td><td>${fds.type}</td></tr>`)
+			tabela ="<th>ID</th><th>Name</th><th>Type</th>" + tabela.join("\n")
+
+			document.getElementById("principal").innerHTML = tabela
+		}
+		gerartable()
+		</script>
+	</body>/
+</hmtl>
