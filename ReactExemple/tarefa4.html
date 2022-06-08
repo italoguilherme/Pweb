@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+
+
+<html>
+
+
+
+   <head>
+
+
+
+      <title>ReceitaReact - 3</title>      
+
+
+
+   </head>
+
+
+
+   <body>
+
+
+
+      <div id="app">
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <script src="libs/react.js"></script>
+
+
+
+      <script src="libs/react-dom.js"></script>
+
+
+
+      <script src="libs/babel.js"></script>
+
+
+
+            
+
+
+
+      <script type="text/babel">
+
+
+
+                 
+
+    const valoresCabecalho = ["Nome", "Marca"];
+        const conteudo = [
+            {nome:"Havana", marca:"Engenho Anísio Santiago"},
+            {nome:"Pitú", marca:"Pitú"},
+            {nome:"Ypióca", marca:"Ypióca"},
+                    
+        ]
+
+    const TabelaBebidas = ({titulo, cabecalhos, conteudo}) => {
+    const valores_cabecalho = cabecalhos.map((tituloCabecalho,index)=>{
+        return (
+            <th key={index}>{tituloCabecalho}</th>
+        );
+    });
+
+
+    const conteudo_formatado = conteudo.map((obj,index)=>{
+        return(
+            <tr key={index}>
+                {
+                    Object.values(obj).map((atributo,index)=>{
+                        return(
+                            <td key={index}>{atributo}</td>
+                        );
+                    })
+                }
+                
+                
+            </tr>
+        );
+    })
+
+
+    return (
+        <div id="containerTabela">
+            <h1>{titulo}</h1>
+            <table border = '2px' bgcolor = 'yellow'>
+                <thead>
+                  <tr bgcolor = 'gold'>
+                  {valores_cabecalho}
+                  </tr>
+                </thead>
+                <tbody>
+                  {conteudo_formatado}
+                </tbody>
+            </table>
+        </div>
+    ) 
+
+
+    }
+
+    ReactDOM.render(
+        <TabelaBebidas 
+            titulo="Tabela de Cana" 
+            cabecalhos={valoresCabecalho}
+            conteudo={conteudo} />,
+        document.getElementById("app")
+    )
+
+
+
+      </script>
+
+   </body>
+
+</html>
