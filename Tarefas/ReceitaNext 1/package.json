@@ -1,0 +1,19 @@
+{
+
+  "dependencies": {
+
+    "next": "^12.2.2"
+
+  },
+
+  
+
+  "scripts": {
+
+    "dev": "next dev",
+
+    "test": "echo \"Error: no test specified\" && exit 1"
+
+  }  
+
+}
